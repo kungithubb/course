@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 public interface TestMapper {
 
-    public List<Test> list();
+    List<Test> list();
     long countByExample(TestExample example);
 
     int deleteByExample(TestExample example);
