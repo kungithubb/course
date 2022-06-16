@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Param;
 
 public interface TestMapper {
 
-    List<Test> list();
     long countByExample(TestExample example);
 
     int deleteByExample(TestExample example);
@@ -29,4 +28,6 @@ public interface TestMapper {
     int updateByPrimaryKeySelective(Test record);
 
     int updateByPrimaryKey(Test record);
+
+    List<Test> list();
 }
