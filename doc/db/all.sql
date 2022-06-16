@@ -6,6 +6,8 @@ create table chapter (
     primary key (id)
 ) engine=innodb default charset=utf8mb4 comment='大章';
 
+insert into chapter (id,course_id,name) value('0','0','测试大章1');
+insert into chapter (id,course_id,name) value('1','0','测试大章2');
 
 /*测试*/
 

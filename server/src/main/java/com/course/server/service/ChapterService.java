@@ -16,8 +16,6 @@ public class ChapterService {
 
     public List<Chapter> list() {
         ChapterExample chapterExample = new ChapterExample();
-        chapterExample.createCriteria().andIdEqualTo("1");
-        chapterExample.setOrderByClause("id desc");
         return chapterMapper.selectByExample(chapterExample);
     }
 }

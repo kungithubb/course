@@ -1,4 +1,4 @@
-package com.course.business.controller;
+package com.course.business.controller.admin;
 
 import com.course.server.domain.Chapter;
 import com.course.server.service.ChapterService;
@@ -10,13 +10,14 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("/admin/chapter")
 public class ChapterController {
 
     @Resource
     private ChapterService chapterService;
 
-    @RequestMapping("/chapter")
-    public List<Chapter> chapter() {
+    @RequestMapping("/list")
+    public List<Chapter> list() {
         return chapterService.list();
     }
 }
