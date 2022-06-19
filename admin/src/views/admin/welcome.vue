@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>您好，欢迎进入后台</h1>
+    <h1>您好，欢迎进入后台系统</h1>
   </div>
 </template>
 
@@ -8,7 +8,8 @@
 export default {
   name: "welcome",
   mounted: function () {
-    this.$parent.activeSidebar("welcome-sidebar");
+    // sidebar激活样式方法一
+    // this.$parent.activeSidebar("welcome-sidebar");
   },
   methods: {
   }
