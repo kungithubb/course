@@ -63,7 +63,7 @@
                 </div><!-- /.widget-body -->
               </div><!-- /.login-box -->
             </div><!-- /.position-relative -->
-              &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp;
           </div>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -74,6 +74,6 @@
 <script>
 $('body').attr('class', 'login-layout light-login');
 export default {
-  name: 'app',
+  name: 'login',
 }
 </script>
