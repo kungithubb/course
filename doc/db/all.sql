@@ -1,3 +1,4 @@
+-- 大章
 drop table if exists chapter;
 create table chapter (
     id char(8) not null comment 'ID',
@@ -20,24 +21,27 @@ insert into chapter (id,course_id,name) value('00000011','00000000','测试大�
 insert into chapter (id,course_id,name) value('00000012','00000000','测试大章12');
 insert into chapter (id,course_id,name) value('00000013','00000000','测试大章13');
 insert into chapter (id,course_id,name) value('00000014','00000000','测试大章14');
-insert into chapter (id,course_id,name) value('00000015','00000000','测试大章15');
-insert into chapter (id,course_id,name) value('00000016','00000000','测试大章16');
-insert into chapter (id,course_id,name) value('00000017','00000000','测试大章17');
-insert into chapter (id,course_id,name) value('00000018','00000000','测试大章18');
-insert into chapter (id,course_id,name) value('00000019','00000000','测试大章19');
-insert into chapter (id,course_id,name) value('00000020','00000000','测试大章20');
-insert into chapter (id,course_id,name) value('00000021','00000000','测试大章21');
-insert into chapter (id,course_id,name) value('00000022','00000000','测试大章22');
-insert into chapter (id,course_id,name) value('00000023','00000000','测试大章23');
-insert into chapter (id,course_id,name) value('00000024','00000000','测试大章24');
-insert into chapter (id,course_id,name) value('00000025','00000000','测试大章25');
-insert into chapter (id,course_id,name) value('00000026','00000000','测试大章26');
-insert into chapter (id,course_id,name) value('00000027','00000000','测试大章27');
-insert into chapter (id,course_id,name) value('00000028','00000000','测试大章28');
-insert into chapter (id,course_id,name) value('00000029','00000000','测试大章29');
-insert into chapter (id,course_id,name) value('00000030','00000000','测试大章30');
 
-/*测试*/
+-- 小节
+DROP TABLE IF EXISTS section;
+CREATE TABLE section (
+    id CHAR(8) NOT NULL DEFAULT '' COMMENT 'ID',
+    title VARCHAR(50) NOT NULL COMMENT '标题',
+    course_id CHAR(8) COMMENT '课程|course.id',
+    chapter_id CHAR(8) COMMENT '大章|chapter.id',
+    video VARCHAR(200) COMMENT '视频',
+    `time` INT COMMENT '时长|单位秒',
+    charge CHAR(1) COMMENT '收费|C 收费; F 免费',
+    sort INT COMMENT '顺序',
+    created_at DATETIME(3) COMMENT '创建时间',
+    updated_at DATETIME(3) COMMENT '修改时间',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='小节';
+
+INSERT INTO section (id, title, course_id, chapter_id, video, time, charge, sort, created_at, updated_at)
+VALUES ('00000001', '测试小节01', '00000001', '00000000', '', 500, 'F', 1, now(), now());
+
+-- 测试
 
 drop table if exists test;
 create table test (
