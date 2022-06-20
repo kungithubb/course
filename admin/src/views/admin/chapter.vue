@@ -126,6 +126,14 @@
 
       save(page) {
         let _this = this;
+
+        // 保存校验
+        if (!Validator.require(_this.chapter.name, "名称")
+            || !Validator.require(_this.chapter.courseId,"课程ID")
+            || !Validator.length(_this.chapter.courseId, "课程ID", 1, 8)) {
+          return;
+        }
+
         Loading.show();
         _this.$ajax.post('http://localhost:9000/business/admin/chapter/save',
         _this.chapter).then((response) => {
@@ -155,29 +163,6 @@
           })
         })
       }
-
-        // Swal.fire({
-        //   title: '是否确认删除?',
-        //   text: "删除后无法恢复",
-        //   icon: 'warning',
-        //   showCancelButton: true,
-        //   confirmButtonColor: '#3085d6',
-        //   cancelButtonColor: '#d33',
-        //   confirmButtonText: '确认'
-        // }).then((result) => {
-        //   if (result.isConfirmed) {
-        //     Loading.show();
-        //     _this.$ajax.delete('http://localhost:9000/business/admin/chapter/delete/' + id).then((response) => {
-        //       Loading.hide();
-        //       console.log("删除大章列表结果:", response);
-        //       let resp = response.data;
-        //       if (resp.success) {
-        //         _this.list(1);
-        //         Toast.success("删除成功！")
-        //       }
-        //     })
-        //   }
-        // })
     }
   }
 </script>
