@@ -12,7 +12,7 @@
       </button>
     </p>
 
-    <pagination ref="pagination" v-bind:list="list"></pagination>
+    <pagination ref="pagination" v-bind:list="list" v-bind:item-count="8"></pagination>
 
     <table id="simple-table" class="table  table-bordered table-hover">
           <thead>
@@ -91,6 +91,7 @@
     },
     mounted: function () {
       let _this = this;
+      _this.$refs.pagination.size = 5
       _this.list(1);
       // sidebar激活样式方法一
       // this.$parent.activeSidebar("business-chapter-sidebar");
@@ -119,7 +120,6 @@
           let resp = response.data;
           _this.chapters = resp.content.list;
           _this.$refs.pagination.render(page,resp.content.total);
-
         })
       },
 

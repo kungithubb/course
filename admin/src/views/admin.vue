@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="navbar" class="navbar navbar-default          ace-save-state">
+    <div id="navbar" class="navbar navbar-default ace-save-state">
       <div class="navbar-container ace-save-state" id="navbar-container">
         <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
           <span class="sr-only">Toggle sidebar</span>
@@ -16,7 +16,7 @@
           <a href="index.html" class="navbar-brand">
             <small>
               <i class="fa fa-leaf"></i>
-              在线慕课平台
+              基于微服务的在线慕课平台
             </small>
           </a>
         </div>
@@ -320,8 +320,7 @@
     </div>
 
     <div class="main-container ace-save-state" id="main-container">
-      <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
-
+      <div id="sidebar" class="sidebar responsive ace-save-state">
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
           <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
             <button class="btn btn-success">
@@ -363,7 +362,7 @@
           </li>
 
           <li class="">
-            <a href="#" class="dropdown-toggle">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown">
               <i class="menu-icon fa fa-list"></i>
               <span class="menu-text"> 系统管理 </span>
 
@@ -403,7 +402,7 @@
           </li>
 
           <li class="">
-            <a href="#" class="dropdown-toggle">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown">
               <i class="menu-icon fa fa-list"></i>
               <span class="menu-text"> 业务管理 </span>
 
@@ -466,7 +465,7 @@
           </li>
 
           <li class="">
-            <a href="#" class="dropdown-toggle">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown">
               <i class="menu-icon fa fa-list"></i>
               <span class="menu-text"> 文件管理 </span>
 
