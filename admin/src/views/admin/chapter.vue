@@ -131,6 +131,7 @@
           if (resp.success) {
             $("#form-modal").modal("hide");
             _this.list(1);
+            toast.success("保存成功！");
           }
         })
       },
@@ -152,17 +153,12 @@
               let resp = response.data;
               if (resp.success) {
                 _this.list(1);
-                Swal.fire(
-                    '已删除!',
-                    '删除成功',
-                    'success'
-                )
+                toast.success("删除成功！")
               }
             })
           }
         })
-
-      },
+      }
     }
   }
 </script>
