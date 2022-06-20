@@ -110,10 +110,12 @@
 
       list(page) {
         let _this = this;
+        Loading.show();
         _this.$ajax.post('http://localhost:9000/business/admin/chapter/list',{
           page: page,
           size: _this.$refs.pagination.size,
         }).then((response)=>{
+          Loading.hide();
           console.log("查询大章列表结果:", response);
           let resp = response.data;
           _this.chapters = resp.content.list;
@@ -124,8 +126,10 @@
 
       save(page) {
         let _this = this;
+        Loading.show();
         _this.$ajax.post('http://localhost:9000/business/admin/chapter/save',
         _this.chapter).then((response) => {
+          Loading.hide();
           console.log("保存大章列表结果:", response);
           let resp = response.data;
           if (resp.success) {
@@ -148,7 +152,9 @@
           confirmButtonText: '确认'
         }).then((result) => {
           if (result.isConfirmed) {
+            Loading.show();
             _this.$ajax.delete('http://localhost:9000/business/admin/chapter/delete/' + id).then((response) => {
+              Loading.hide();
               console.log("删除大章列表结果:", response);
               let resp = response.data;
               if (resp.success) {
