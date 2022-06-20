@@ -31,11 +31,11 @@
         每页
         <select v-model="size">
             <option value="1">1</option>
-            <option value="3">3</option>
-            <option value="6">6</option>
-            <option value="9">9</option>
-            <option value="12">12</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
             <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
         </select>
         条，共【{{total}}】条
     </span>
@@ -55,7 +55,7 @@
     data: function () {
       return {
         total: 0, // 总行数
-        size: 5, // 每页条数
+        size: 8, // 每页条数
         page: 0, // 当前页码
         pageTotal: 0, // 总页数
         pages: [], // 显示的页码数组
