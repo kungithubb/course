@@ -135,36 +135,49 @@
           if (resp.success) {
             $("#form-modal").modal("hide");
             _this.list(1);
-            toast.success("保存成功！");
+            Toast.success("保存成功！");
           }
         })
       },
 
       del(id) {
         let _this = this;
-        Swal.fire({
-          title: '是否确认删除?',
-          text: "删除后无法恢复",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: '确认'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Loading.show();
-            _this.$ajax.delete('http://localhost:9000/business/admin/chapter/delete/' + id).then((response) => {
-              Loading.hide();
-              console.log("删除大章列表结果:", response);
-              let resp = response.data;
-              if (resp.success) {
-                _this.list(1);
-                toast.success("删除成功！")
-              }
-            })
-          }
+        Confirm.show("删除大章后无法恢复,是否确认删除?", function () {
+          Loading.show();
+          _this.$ajax.delete('http://localhost:9000/business/admin/chapter/delete/' + id).then((response) => {
+            Loading.hide();
+            console.log("删除大章列表结果:", response);
+            let resp = response.data;
+            if (resp.success) {
+              _this.list(1);
+              Toast.success("删除成功！")
+            }
+          })
         })
       }
+
+        // Swal.fire({
+        //   title: '是否确认删除?',
+        //   text: "删除后无法恢复",
+        //   icon: 'warning',
+        //   showCancelButton: true,
+        //   confirmButtonColor: '#3085d6',
+        //   cancelButtonColor: '#d33',
+        //   confirmButtonText: '确认'
+        // }).then((result) => {
+        //   if (result.isConfirmed) {
+        //     Loading.show();
+        //     _this.$ajax.delete('http://localhost:9000/business/admin/chapter/delete/' + id).then((response) => {
+        //       Loading.hide();
+        //       console.log("删除大章列表结果:", response);
+        //       let resp = response.data;
+        //       if (resp.success) {
+        //         _this.list(1);
+        //         Toast.success("删除成功！")
+        //       }
+        //     })
+        //   }
+        // })
     }
   }
 </script>
