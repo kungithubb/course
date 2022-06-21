@@ -15,16 +15,16 @@
     <pagination ref="pagination" v-bind:list="list" v-bind:item-count="8"></pagination>
 
     <div class="row">
-      <div v-for="course in courses" class="col-md-4">
+      <div v-for="course in courses" class="col-md-3">
         <div class="thumbnail search-thumbnail">
           <img v-show="!course.image" class="media-object" src="/static/image/demo-course.jpg" />
           <img v-show="course.image" class="media-object" v-bind:src="course.image" />
           <div class="caption">
             <div class="clearfix">
-              <span class="pull-right label label-primary info-label">
+              <span class="pull-right label label-purple info-label">
                 {{COURSE_LEVEL | optionKV(course.level)}}
               </span>
-              <span class="pull-right label label-primary info-label">
+              <span class="pull-right label label-important info-label">
                 {{COURSE_CHARGE | optionKV(course.charge)}}
               </span>
               <span class="pull-right label label-primary info-label">
@@ -42,7 +42,7 @@
             <p>
               <span class="badge badge-info">{{course.id}}</span>
               <span class="badge badge-info">排序：{{course.sort}}</span>
-              <span class="badge badge-info">{{course.time | formatSecond}}</span>
+              <span class="badge badge-info">时长：{{course.time}}</span>
             </p>
             <p>
               <button v-on:click="toChapter(course)" class="btn btn-white btn-xs btn-info btn-round">
