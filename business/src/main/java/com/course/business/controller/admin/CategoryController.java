@@ -3,7 +3,6 @@ package com.course.business.controller.admin;
 import com.course.server.dto.CategoryDto;
 import com.course.server.dto.PageDto;
 import com.course.server.dto.ResponseDto;
-import com.course.server.exception.ValidatorException;
 import com.course.server.service.CategoryService;
 import com.course.server.util.ValidatorUtil;
 import org.slf4j.Logger;
@@ -11,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 @RestController
@@ -22,6 +22,14 @@ public class CategoryController {
 
     @Resource
     private CategoryService categoryService;
+
+    @PostMapping("/all")
+    public ResponseDto all() {
+        ResponseDto responseDto = new ResponseDto();
+        List<CategoryDto> categoryDtoList = categoryService.all();
+        responseDto.setContent(categoryDtoList);
+        return responseDto;
+    }
 
     @PostMapping("/list")
     public ResponseDto list(@RequestBody PageDto pageDto) {

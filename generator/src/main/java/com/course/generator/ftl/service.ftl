@@ -39,13 +39,7 @@ public class ${Domain}Service {
         List<${Domain}> ${domain}List = ${domain}Mapper.selectByExample(${domain}Example);
         PageInfo<${Domain}> pageInfo = new PageInfo<>(${domain}List);
         pageDto.setTotal(pageInfo.getTotal());
-        List<${Domain}Dto> ${domain}DtoList = new ArrayList<${Domain}Dto>();
-        for (int i = 0, l = ${domain}List.size(); i < l; i++) {
-            ${Domain} ${domain} = ${domain}List.get(i);
-            ${Domain}Dto ${domain}Dto = new ${Domain}Dto();
-            BeanUtils.copyProperties(${domain},${domain}Dto);
-            ${domain}DtoList.add(${domain}Dto);
-        }
+        List<${Domain}Dto> ${domain}DtoList = CopyUtil.copyList(${domain}List, ${Domain}Dto.class);
         pageDto.setList(${domain}DtoList);
 
     }

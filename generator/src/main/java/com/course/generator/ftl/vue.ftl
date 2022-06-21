@@ -36,11 +36,11 @@
             </#list>
             <td>
               <div class="hidden-sm hidden-xs btn-group">
-                <button v-on:click="edit(${domain})" class="btn btn-xs btn-info">
-                  <i class="ace-icon fa fa-pencil bigger-120"></i>
+                <button v-on:click="edit(${domain})" class="btn btn-white btn-xs btn-info btn-round">
+                  编辑
                 </button>
-                <button v-on:click="del(${domain}.id)" class="btn btn-xs btn-danger">
-                  <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                <button v-on:click="del(${domain}.id)" class="btn btn-white btn-xs btn-warning btn-round">
+                  删除
                 </button>
               </div>
             </td>
@@ -142,7 +142,7 @@
         })
       },
 
-      save(page) {
+      save() {
         let _this = this;
 
         // 保存校验
