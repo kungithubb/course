@@ -1,8 +1,7 @@
 package com.course.server.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class SectionDto {
 
@@ -22,7 +21,7 @@ public class SectionDto {
     private String courseId;
 
     /**
-     * 章|chapter.id
+     * 大章|chapter.id
      */
     private String chapterId;
 
@@ -37,7 +36,7 @@ public class SectionDto {
     private Integer time;
 
     /**
-     * 收费|C 收费；F 免费
+     * 收费|C 收费; F 免费
      */
     private String charge;
 
@@ -138,6 +137,7 @@ public class SectionDto {
         this.updatedAt = updatedAt;
     }
 
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -157,4 +157,5 @@ public class SectionDto {
         sb.append("]");
         return sb.toString();
     }
+
 }
