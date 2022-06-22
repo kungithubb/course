@@ -5,40 +5,40 @@
       <div class="col-xs-12">
         <div class="text-center">
           <span class="btn btn-app btn-sm btn-light no-hover">
-              <span class="line-height-1 bigger-170 blue"> 518 </span>
+              <span class="line-height-1 bigger-170 blue"> @ </span>
               <br>
               <span class="line-height-1 smaller-90"> 课程 </span>
           </span>
           <span class="btn btn-app btn-sm btn-yellow no-hover">
-              <span class="line-height-1 bigger-170"> 6,321 </span>
+              <span class="line-height-1 bigger-170"> @ </span>
 
               <br>
               <span class="line-height-1 smaller-90"> 大章 </span>
           </span>
 
           <span class="btn btn-app btn-sm btn-pink no-hover">
-              <span class="line-height-1 bigger-170"> 4,182 </span>
+              <span class="line-height-1 bigger-170"> @ </span>
 
               <br>
               <span class="line-height-1 smaller-90"> 小节 </span>
           </span>
 
           <span class="btn btn-app btn-sm btn-success no-hover">
-              <span class="line-height-1 bigger-170"> 5.23 </span>
+              <span class="line-height-1 bigger-170"> @ </span>
 
               <br>
               <span class="line-height-1 smaller-90"> 会员(万) </span>
           </span>
 
           <span class="btn btn-app btn-sm btn-primary no-hover">
-              <span class="line-height-1 bigger-170"> 12.76 </span>
+              <span class="line-height-1 bigger-170"> @ </span>
 
               <br>
               <span class="line-height-1 smaller-90"> 报名(万) </span>
           </span>
 
           <span class="btn btn-app btn-sm btn-grey no-hover">
-              <span class="line-height-1 bigger-170"> 32.96 </span>
+              <span class="line-height-1 bigger-170"> @ </span>
 
               <br>
               <span class="line-height-1 smaller-90"> 评论(万) </span>
@@ -61,11 +61,11 @@
           </div>
 
           <div class="infobox-data">
-            <span class="infobox-data-number">332</span>
+            <span class="infobox-data-number">@</span>
             <div class="infobox-content">新增评论</div>
           </div>
 
-          <div class="stat stat-success">8%</div>
+          <div class="stat stat-success">@%</div>
         </div>
 
         <div class="infobox infobox-blue">
@@ -74,12 +74,12 @@
           </div>
 
           <div class="infobox-data">
-            <span class="infobox-data-number">58</span>
+            <span class="infobox-data-number">@</span>
             <div class="infobox-content">新增注册会员</div>
           </div>
 
           <div class="badge badge-success">
-            +10%
+            +@%
             <i class="ace-icon fa fa-arrow-up"></i>
           </div>
         </div>
@@ -90,10 +90,10 @@
           </div>
 
           <div class="infobox-data">
-            <span class="infobox-data-number">108</span>
+            <span class="infobox-data-number">@</span>
             <div class="infobox-content">课程报名</div>
           </div>
-          <div class="stat stat-important">4%</div>
+          <div class="stat stat-important">@%</div>
         </div>
 
         <div class="space-12"></div>
@@ -159,62 +159,62 @@
 
                 <tbody>
                 <tr>
-                  <td>开发工具IDEA从入门到爱不释手</td>
+                  <td>《Spring Boot+Spring Cloud 微服务开发》</td>
 
                   <td>
-                    <b class="green">￥299.00</b>
+                    <b class="green">￥@</b>
                   </td>
 
                   <td>
-                    <span class="label label-warning arrowed arrowed-right">5,132</span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>开发工具IDEA从入门到爱不释手</td>
-
-                  <td>
-                    <b class="red">￥388.00</b>
-                  </td>
-
-                  <td>
-                    <span class="label label-warning arrowed arrowed-right">3,132</span>
+                    <span class="label label-warning arrowed arrowed-right">@</span>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>开发工具IDEA从入门到爱不释手</td>
+                  <td>《SSM 轻量级框架应用实战》</td>
 
                   <td>
-                    <b class="green">￥199.00</b>
+                    <b class="red">￥@</b>
                   </td>
 
                   <td>
-                    <span class="label label-warning arrowed arrowed-right">2,132</span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>开发工具IDEA从入门到爱不释手</td>
-
-                  <td>
-                    <b class="green">￥299.00</b>
-                  </td>
-
-                  <td>
-                    <span class="label label-success arrowed arrowed-right">1,654</span>
+                    <span class="label label-warning arrowed arrowed-right">@</span>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>开发工具IDEA从入门到爱不释手</td>
+                  <td>HBase 分布式存储系统应用</td>
 
                   <td>
-                    <b class="green">￥199.00</b>
+                    <b class="green">￥@</b>
                   </td>
 
                   <td>
-                    <span class="label label-success arrowed arrowed-right">1,254</span>
+                    <span class="label label-warning arrowed arrowed-right">@</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>计算机网络</td>
+
+                  <td>
+                    <b class="green">￥@</b>
+                  </td>
+
+                  <td>
+                    <span class="label label-success arrowed arrowed-right">@</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>操作系统</td>
+
+                  <td>
+                    <b class="green">￥@</b>
+                  </td>
+
+                  <td>
+                    <span class="label label-success arrowed arrowed-right">@</span>
                   </td>
                 </tr>
                 </tbody>

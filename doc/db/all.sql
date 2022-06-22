@@ -15,10 +15,12 @@ create table course (
     created_at datetime(3) comment '创建时间',
     updated_at datetime(3) comment '修改时间',
     primary key (id)
-)   engine=innodb default charset=utf8mb4 comment='课程表';
+)   engine=innodb default charset=utf8mb4 comment='课程';
 
-INSERT INTO course (id, name, summary, time, price, image, level, charge, status, enroll, sort, created_at, updated_at)
-VALUES ('00000001', '测试课程01', '这是一门测试课程', 7200, 19.9, '', 0, 'C', 'D', 100, 0, now(), now());
+insert into course (id, name, summary, time, price, image, level, charge, status, enroll, sort, created_at, updated_at)
+values ('00000001', '测试课程01', '这是一门测试课程', 7200, 19.9, '', 0, 'c', 'd', 100, 0, now(), now());
+
+alter table course add column (teacher_id char(8) comment '讲师|teacher.id');
 
 -- 大章
 drop table if exists chapter;
@@ -136,3 +138,16 @@ create table course_content (
     content mediumtext not null comment '课程内容',
     primary key (id)
 )   engine=innodb default charset=utf8mb4 comment='课程内容';
+
+-- 讲师
+drop table if exists teacher;
+create table teacher (
+    id char(8) not null default '' comment 'id',
+    `name` varchar(50) not null comment '姓名',
+    nickname varchar(50) comment '昵称',
+    image varchar(100) comment '头像',
+    position varchar(50) comment '职位',
+    motto varchar(50) comment '座右铭',
+    intro varchar(500) comment '简介',
+    primary key (id)
+)   engine=innodb default charset=utf8mb4 comment='讲师';
