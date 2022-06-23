@@ -16,9 +16,12 @@
 
     <table id="simple-table" class="table  table-bordered table-hover">
           <thead>
-          <tr><#list fieldList as field>
+          <tr>
+            <#list fieldList as field>
               <#if field.nameHump!="createdAt" && field.nameHump!="updatedAt">
-            <th>${field.nameCn}</th></#if></#list>
+            <th>${field.nameCn}</th>
+              </#if>
+            </#list>
             <th>操作</th>
           </tr>
           </thead>
@@ -46,7 +49,7 @@
             </td>
           </tr>
           </tbody>
-        </table>
+    </table>
 
     <div id="form-modal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">

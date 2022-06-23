@@ -1,50 +1,21 @@
 <template>
-  <div class="pagination" role="group" aria-label="分页">
-    <button type="button" class="btn btn-default btn-white btn-round" 
-            v-bind:disabled="page === 1"
-            v-on:click="selectPage(1)">
-      1
+  <div>
+    <button type="button" v-on:click="selectFile()" class="btn btn-white btn-default btn-round">
+      <i class="ace-icon fa fa-upload"></i>
+      上传头像
     </button>
-    <button type="button" class="btn btn-default btn-white btn-round" 
-            v-bind:disabled="page === 1"
-            v-on:click="selectPage(page - 1)">
-      上一页
-    </button>
-    <button v-for="p in pages" v-bind:id="'page-' + p" 
-            type="button" class="btn btn-default btn-white btn-round"
-            v-bind:class="{'btn-primary active':page == p}" 
-            v-on:click="selectPage(p)">
-      {{p}}
-    </button>
-    <button type="button" class="btn btn-default btn-white btn-round" 
-            v-bind:disabled="page === pageTotal"
-            v-on:click="selectPage(page + 1)">
-      下一页
-    </button>
-    <button type="button" class="btn btn-default btn-white btn-round"
-            v-bind:disabled="page === pageTotal"
-            v-on:click="selectPage(pageTotal)">
-      {{pageTotal||1}}
-    </button>
-    &nbsp;
-    <span class="m--padding-10">
-        每页
-        <select v-model="size">
-            <option value="1">1</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-        </select>
-        条，共【{{total}}】条
-    </span>
+    <input class="hidden" type="file" v-on:change="uploadFile()" id="file-upload-input">
+    <div v-show="teacher.image" class="row">
+      <div class="col-md-4">
+        <img v-bind:src="teacher.image" class="img-responsive">
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'pagination',
+    name: 'file',
     props: {
       list: {
         type: Function,
@@ -54,72 +25,43 @@
     },
     data: function () {
       return {
-        total: 0, // 总行数
-        size: 10, // 每页条数
-        page: 0, // 当前页码
-        pageTotal: 0, // 总页数
-        pages: [], // 显示的页码数组
       }
     },
     methods: {
-      /**
-       * 渲染分页组件
-       * @param page
-       * @param total
-       */
-      render(page, total) {
+      uploadFile () {
         let _this = this;
-        _this.page = page;
-        _this.total = total;
-        _this.pageTotal = Math.ceil(total / _this.size);
-        _this.pages = _this.getPageItems(_this.pageTotal, page, _this.itemCount || 5);
+        let formData = new window.FormData();
+        let file = _this.$refs.file.files[0];
+
+        let suffixs = ["jpg", "jpeg", "png"];
+        let fileName = file.name;
+        let suffix = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length).toLowerCase();
+        let validateSuffix = false;
+        for (let i = 0; i < suffixs.length; i++) {
+          if (suffixs[i].toLowerCase() === suffix) {
+            validateSuffix = true;
+            break;
+          }
+        }
+        if(!validateSuffix) {
+          Toast.warning("文件格式不正确！只支持上传：" + suffixs.join(","));
+          return;
+        }
+
+        formData.append('file', file);
+        Loading.show();
+        _this.$ajax.post(process.env.VUE_APP_SERVER +
+            '/file/admin/upload', formData).then((response)=>{
+          Loading.hide();
+          let resp = response.data;
+          let image = resp.content;
+          console.log("头像地址：",image);
+          _this.teacher.image = image;
+        });
       },
 
-      /**
-       * 查询某一页
-       * @param page
-       */
-      selectPage(page) {
-        let _this = this;
-        if (page < 1) {
-          page = 1;
-        }
-        if (page > _this.pageTotal) {
-          page = _this.pageTotal;
-        }
-        if (this.page !== page) {
-          _this.page = page;
-          if (_this.list) {
-            _this.list(page);
-          }
-        }
-      },
-
-      /**
-       * 当前要显示在页面上的页码
-       * @param total
-       * @param current
-       * @param length
-       * @returns {Array}
-       */
-      getPageItems(total, current, length) {
-        let items = [];
-        if (length >= total) {
-          for (let i = 1; i <= total; i++) {
-            items.push(i);
-          }
-        } else {
-          let base = 0;
-          // 前移
-          if (current - 0 > Math.floor((length - 1) / 2)) {
-            // 后移
-            base = Math.min(total, current - 0 + Math.ceil((length - 1) / 2)) - length;
-          }
-          for (let i = 1; i <= length; i++) {
-            items.push(base + i);
-          }
-        }
-        return items;
+      selectFile() {
+        $("#file-upload-input").trigger("click");
       }
     }
   }

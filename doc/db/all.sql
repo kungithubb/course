@@ -131,13 +131,24 @@ create table course_category (
     primary key (id)
 )   engine=innodb default charset=utf8mb4 comment='课程分类';
 
--- 课程内容表
+-- 课程内容
 drop table if exists course_content;
 create table course_content (
     id char(8) not null default '' comment '课程id',
     content mediumtext not null comment '课程内容',
     primary key (id)
 )   engine=innodb default charset=utf8mb4 comment='课程内容';
+
+-- 课程内容文件
+drop table if exists course_conten_file;
+create table course_content_file (
+    id char(8) not null default '' comment 'id',
+    course_id char(8) not null comment '课程id',
+    url varchar(100) comment '地址',
+    `name` varchar(100) comment '文件名',
+    size int comment '大小|字节b',
+    primary key (id)
+)   engine=innodb default charset=utf8mb4 comment='课程内容文件';
 
 -- 讲师
 drop table if exists teacher;
@@ -151,3 +162,30 @@ create table teacher (
     intro varchar(500) comment '简介',
     primary key (id)
 )   engine=innodb default charset=utf8mb4 comment='讲师';
+
+-- 文件
+drop table if exists file;
+create table file (
+    id char(8) not null default '' comment 'id',
+    `path` varchar(100) not null comment '相对路径',
+    `name` varchar(100) comment '文件名',
+    suffix varchar(10) comment '后缀',
+    size int comment '大小|字节B',
+    `use` char(1) comment '用途|枚举[FileUseEnum]: COURSE("C", "讲师"), TEACHER("T", "课程")',
+    created_at datetime(3) comment '创建时间',
+    updated_at datetime(3) comment '修改时间',
+    primary key (id),
+    unique key `path_unique` (`path`)
+)   engine=innodb default charset=utf8mb4 comment='文件';
+
+-- 测试
+
+drop table if exists test;
+create table test (
+                      id char(8) not null default '' comment 'id',
+                      name varchar(50) comment '名称',
+                      primary key (id)
+) engine=innodb default charset=utf8mb4 comment='测试';
+
+insert into test (id,name) values(1,'测试');
+insert into test (id,name) values(2,'测试2');
