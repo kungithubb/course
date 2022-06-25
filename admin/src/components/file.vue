@@ -21,7 +21,7 @@
       suffixs: {
         default: []
       },
-      user: {
+      use: {
         default: ""
       },
       afterUpload: {

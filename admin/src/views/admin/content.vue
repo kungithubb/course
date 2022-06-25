@@ -12,7 +12,7 @@
           v-bind:use="FILE_USE.COURSE.key"
           v-bind:after-upload="afterUploadContentFile"></file>
     <br>
-    <table id="file-table" class="table  table-bordered table-hover">
+    <table id="file-table" class="table table-bordered table-hover">
       <thead>
       <tr>
         <th>名称</th>
@@ -156,7 +156,7 @@
           if (resp.success) {
             // Toast.success("内容保存成功");
             // let now = Tool.dateFormat("yyyy-MM-dd hh:mm:ss");
-            let now = Tool.dateFormat("mm:ss");
+            let now = Tool.dateFormat("yyyy-MM-dd hh:mm:ss");
             _this.saveContentLabel = "最后保存时间：" + now;
           } else {
             Toast.warning(resp.message);

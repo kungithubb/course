@@ -221,7 +221,7 @@
           <div class="footer-content">
 						<span class="bigger-120">
 							<span class="blue bolder">基于微服务的在线慕课平台</span>
-							课程设计 &copy; 2022-6-20
+							课程设计 &copy; 2022-06
 						</span>
 
             &nbsp; &nbsp;

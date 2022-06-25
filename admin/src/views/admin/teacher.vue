@@ -47,11 +47,12 @@
         <div class="space-6"></div>
 
         <div class="profile-social-links align-center">
-          <button v-on:click="edit(teacher)" class="btn btn-white btn-xs btn-info btn-round">
-            编辑
-          </button>&nbsp;
-          <button v-on:click="del(teacher.id)" class="btn btn-white btn-xs btn-warning btn-round">
-            删除
+          <button v-on:click="edit(teacher)" class="btn btn-xs btn-info">
+            <i class="ace-icon fa fa-pencil bigger-120"></i>
+          </button>
+          &nbsp;
+          <button v-on:click="del(teacher.id)" class="btn btn-xs btn-danger">
+            <i class="ace-icon fa fa-trash-o bigger-120"></i>
           </button>
         </div>
 
@@ -85,10 +86,10 @@
                 <label class="col-sm-2 control-label">头像</label>
                 <div class="col-sm-10">
                   <file v-bind:input-id="'image-upload'"
-                            v-bind:text="'上传头像'"
-                            v-bind:suffixs="['jpg', 'jpeg', 'png']"
-                            v-bind:use="FILE_USE.TEACHER.key"
-                            v-bind:after-upload="afterUpload"></file>
+                        v-bind:text="'上传头像'"
+                        v-bind:suffixs="['jpg', 'jpeg', 'png']"
+                        v-bind:use="FILE_USE.TEACHER.key"
+                        v-bind:after-upload="afterUpload"></file>
                   <div v-show="teacher.image" class="row">
                     <div class="col-md-4">
                       <img v-bind:src="teacher.image" class="img-responsive">
@@ -204,8 +205,7 @@
         }
 
         Loading.show();
-        _this.$ajax.post(process.env.VUE_APP_SERVER + '/business/admin/teacher/save', _this.teacher).then(
-  (response)=>{
+        _this.$ajax.post(process.env.VUE_APP_SERVER + '/business/admin/teacher/save', _this.teacher).then((response)=>{
           Loading.hide();
           let resp = response.data;
           if (resp.success) {
@@ -225,8 +225,7 @@
         let _this = this;
         Confirm.show("删除讲师后不可恢复，确认删除？", function () {
           Loading.show();
-          _this.$ajax.delete(process.env.VUE_APP_SERVER + '/business/admin/teacher/delete/' + id).then(
-  (response)=>{
+          _this.$ajax.delete(process.env.VUE_APP_SERVER + '/business/admin/teacher/delete/' + id).then((response)=>{
             Loading.hide();
             let resp = response.data;
             if (resp.success) {
