@@ -91,7 +91,7 @@
                         v-bind:use="FILE_USE.TEACHER.key"
                         v-bind:after-upload="afterUpload"></file>
                   <div v-show="teacher.image" class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <img v-bind:src="teacher.image" class="img-responsive">
                     </div>
                   </div>
